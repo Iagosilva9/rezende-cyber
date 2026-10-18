@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rezendecyber.com.br/sitemap.xml
