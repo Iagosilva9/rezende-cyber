@@ -187,3 +187,13 @@ footer{border-top:1px solid var(--linha);padding:34px 0;color:var(--txt2);font-s
 .pcta{margin-top:44px;text-align:center}
 .pcta p{color:var(--txt2);margin-bottom:18px}
 @media(max-width:900px){.pgrid{grid-template-columns:1fr}}
+
+.resp{background:rgba(34,211,238,.07);border-left:3px solid var(--ciano);padding:16px 20px;border-radius:0 12px 12px 0;color:var(--txt)!important;font-size:1.05rem}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:18px}
+.grid2 .card{display:block}.grid2 .card h3{font-size:1.1rem}
+.gt{font-size:1.3rem;margin-top:44px;font-family:'JetBrains Mono',monospace;color:var(--ciano);font-weight:500}
+.rel{margin-top:44px;padding:22px 24px;border:1px solid var(--linha);background:var(--card);border-radius:14px}
+.rel h2{margin-top:0!important;font-size:1.1rem!important}.rel li a{color:var(--ciano)}
+.autor{display:flex;gap:14px;align-items:center;margin-top:30px;padding-top:24px;border-top:1px solid var(--linha)}
+.autor img{background:#fff;border-radius:8px;padding:3px;width:40px;height:46px;object-fit:contain}.autor p{margin:0!important;font-size:.9rem}
+@media(max-width:900px){.grid2{grid-template-columns:1fr}}
