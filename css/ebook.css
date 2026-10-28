@@ -1,0 +1,66 @@
+/* materiais / e-books (página oculta, fora do menu) */
+.nav>.btn{padding:10px 20px;color:#04210f}
+@media(max-width:600px){.nav>.btn{padding:9px 14px;font-size:.85rem}}
+.ebook{padding:56px 0 80px}
+.ebook .container{max-width:860px}
+.capa{padding:46px 40px;border:1px solid var(--linha);border-radius:var(--raio);background:linear-gradient(160deg,var(--card),var(--bg2));position:relative;overflow:hidden}
+.capa::after{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--linha) 1px,transparent 1px),linear-gradient(90deg,var(--linha) 1px,transparent 1px);background-size:40px 40px;opacity:.25;pointer-events:none}
+.capa>*{position:relative;z-index:1}
+.capa h1{font-size:clamp(2rem,5vw,3.2rem)}
+.capa-acoes{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.assin{margin-top:22px;font-size:.85rem;color:var(--txt2)}
+.sumario{margin-top:34px;padding:24px 28px;border:1px solid var(--linha);border-radius:14px;background:var(--card)}
+.sumario h2{font-size:1.05rem}
+.sumario ol{list-style:none;margin-top:12px;display:grid;gap:8px}
+.sumario a{display:flex;gap:14px;color:var(--txt2)}
+.sumario a:hover{color:var(--ciano)}
+.sumario span{font-family:'JetBrains Mono',monospace;color:var(--ciano);font-size:.85rem;padding-top:3px}
+.texto{margin-top:20px}
+.cap{padding-top:44px}
+.cap .num{font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ciano)}
+.cap h2{font-size:clamp(1.5rem,3.2vw,2rem);margin-top:6px}
+.cap h3{margin-top:28px;font-size:1.12rem}
+.cap p{color:var(--txt2);margin-top:14px}
+.cap p b,.cap li b{color:var(--txt)}
+.cap ul,.cap ol{margin-top:14px;display:grid;gap:10px;color:var(--txt2);padding-left:0}
+.cap ul{list-style:none}
+.cap ul li{padding-left:22px;position:relative}
+.cap ul li::before{content:"›";position:absolute;left:0;color:var(--ciano)}
+.cap ol{list-style:none;counter-reset:p}
+.cap ol li{counter-increment:p;padding-left:38px;position:relative}
+.cap ol li::before{content:counter(p);position:absolute;left:0;top:1px;width:26px;height:26px;border-radius:50%;background:rgba(34,211,238,.12);color:var(--ciano);font:600 .8rem/26px 'JetBrains Mono',monospace;text-align:center}
+.box{margin-top:22px;padding:18px 22px;border-radius:0 12px 12px 0;border-left:3px solid var(--ciano);background:rgba(34,211,238,.07)}
+.box.alerta{border-color:#fbbf24;background:rgba(251,191,36,.08)}
+.box p:first-child,.box ul:first-child{margin-top:0}
+.box strong{display:block;color:var(--txt);margin-bottom:4px}
+.check li::before{content:"☐"!important;font-size:.95rem;top:1px}
+.tabela{width:100%;border-collapse:collapse;margin-top:18px;font-size:.93rem}
+.tabela th,.tabela td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--linha);vertical-align:top}
+.tabela th{color:var(--txt);font-weight:600}
+.tabela td{color:var(--txt2)}
+.url{font-family:'JetBrains Mono',monospace;font-size:.88rem;background:var(--bg2);border:1px solid var(--linha);border-radius:8px;padding:2px 8px;color:var(--txt);word-break:break-all}
+.url .ok{color:var(--verde)}.url .ruim{color:#fbbf24}
+.fim{margin-top:56px;padding:34px;border:1px solid var(--linha);border-radius:var(--raio);background:var(--card)}
+.fim p{color:var(--txt2);margin-top:10px}
+.mats{display:grid;gap:18px;margin-top:30px}
+.mat{display:block;padding:26px 28px;border:1px solid var(--linha);border-radius:14px;background:var(--card);transition:.2s}
+.mat:hover{border-color:var(--ciano)}
+.mat p{color:var(--txt2);margin-top:8px}
+.mat b{display:inline-block;margin-top:12px;color:var(--ciano);font-weight:600}
+@media(max-width:600px){.capa{padding:32px 22px}.fim{padding:24px}.tabela{font-size:.85rem}.tabela th,.tabela td{padding:8px 6px}}
+
+/* impressão / PDF: fundo claro */
+@media print{
+  :root{--bg:#fff;--bg2:#f1f5f9;--card:#f8fafc;--linha:#dbe3ee;--txt:#0f172a;--txt2:#334155;--ciano:#0e7490}
+  body{background:#fff;font-size:12.5pt}
+  header,footer,.flutuante,.capa-acoes,.mig,.fim .capa-acoes{display:none!important}
+  .ebook{padding:0}
+  .capa{break-after:page;min-height:240mm;display:flex;flex-direction:column;justify-content:center}
+  .capa::after{opacity:.5}
+  .sumario{break-after:page}
+  .cap{break-before:page;padding-top:0}
+  .cap h3,.box,.tabela tr{break-inside:avoid}
+  .fim{break-inside:avoid}
+  .fim::after{content:"WhatsApp (11) 95947-3491 · rezendecyber.com.br";display:block;margin-top:12px;font-weight:600;color:#0f172a}
+  a{color:inherit}
+}
