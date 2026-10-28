@@ -16,7 +16,7 @@
 .sumario a:hover{color:var(--ciano)}
 .sumario span{font-family:'JetBrains Mono',monospace;color:var(--ciano);font-size:.85rem;padding-top:3px}
 .texto{margin-top:20px}
-.cap{padding-top:44px}
+.cap{padding:44px 0 0}
 .cap .num{font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ciano)}
 .cap h2{font-size:clamp(1.5rem,3.2vw,2rem);margin-top:6px}
 .cap h3{margin-top:28px;font-size:1.12rem}
@@ -64,3 +64,12 @@
   .fim::after{content:"WhatsApp (11) 95947-3491 · rezendecyber.com.br";display:block;margin-top:12px;font-weight:600;color:#0f172a}
   a{color:inherit}
 }
+
+/* índice por assunto */
+.assuntos{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.assuntos a{padding:8px 14px;border:1px solid var(--linha);border-radius:999px;font-size:.88rem;color:var(--txt);background:var(--bg2)}
+.assuntos a:hover{border-color:var(--ciano);color:var(--ciano)}
+.assuntos span{font-family:'JetBrains Mono',monospace;color:var(--ciano);margin-left:4px}
+.grupo{padding:40px 0 0;scroll-margin-top:90px}
+.grupo h2{font-size:1.3rem}.grupo h2::first-letter{text-transform:uppercase}
+.grupo .mats{margin-top:16px}
