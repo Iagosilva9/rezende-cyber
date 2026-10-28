@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Materiais gratuitos | Iago Rezende</title>
+<meta name="description" content="E-books gratuitos de segurança digital, golpes, provas digitais e TI.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="article"><meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Materiais gratuitos"><meta property="og:description" content="E-books gratuitos de segurança digital, golpes, provas digitais e TI.">
+<meta property="og:url" content="https://rezendecyber.com.br/materiais/">
+<meta property="og:image" content="https://rezendecyber.com.br/img/iago.jpg">
+<link rel="icon" href="/img/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/ebook.css">
+</head>
+<body>
+<header id="topo">
+  <div class="container nav">
+    <a href="/" class="logo">
+      <img src="/img/logo.jpg" alt="Logo Rezende Perito Forense Digital">
+      <span><b>Iago Rezende</b><small>Perito Forense Digital</small></span>
+    </a>
+    <a href="#" class="btn btn-wpp" data-wpp="Olá, Iago! Vim pelos materiais do site.">Falar agora</a>
+  </div>
+</header>
+<main class="ebook">
+<div class="container">
+  <div class="capa">
+    <span class="tag">área de materiais</span>
+    <h1>Materiais gratuitos</h1>
+    <p class="sub">Os e-books completos dos temas que eu publico no Instagram. Leia aqui ou baixe em PDF.</p>
+  </div>
+  <div class="mats">
+<a class="mat" href="/materiais/golpe-do-link/"><span class="tag">golpes digitais</span><h3>Esse link é golpe? O guia completo contra o phishing</h3><p>Como reconhecer um link falso em segundos, os golpes mais comuns no Brasil e o que fazer se você já clicou.</p><b>Ler o e-book →</b></a>
+<a class="mat" href="/materiais/recuperar-arquivos-apagados/"><span class="tag">recuperação de dados</span><h3>Apagou sem querer? O guia para recuperar arquivos apagados</h3><p>Onde procurar primeiro, o erro que impede a recuperação e o passo a passo no computador, celular, pen drive e nuvem.</p><b>Ler o e-book →</b></a>
+<a class="mat" href="/materiais/audio-de-whatsapp-como-prova/"><span class="tag">provas digitais</span><h3>Áudio de WhatsApp vale como prova? O guia para guardar do jeito certo</h3><p>Quando um áudio pode ser usado em processo, por que ele é contestado e como preservar sem perder o valor da prova.</p><b>Ler o e-book →</b></a>
+  </div>
+</div>
+</main>
+<footer>
+  <div class="container rodape">
+    <span>© <span id="ano">2026</span> Iago Silva Rezende · Perito Forense Digital e TI</span>
+    <span>Embu das Artes · SP · rezendecyber.com.br</span>
+  </div>
+</footer>
+<script>
+const W='5511959473491';const wa=m=>`https://wa.me/${W}?text=${encodeURIComponent(m)}`;
+document.querySelectorAll('[data-wpp]').forEach(a=>{a.href=wa(a.dataset.wpp);a.target='_blank';a.rel='noopener'});
+const h=document.querySelector('header');addEventListener('scroll',()=>h.classList.toggle('rolou',scrollY>10),{passive:true});
+document.getElementById('ano').textContent=new Date().getFullYear();
+</script>
+</body></html>
