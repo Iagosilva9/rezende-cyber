@@ -1,7 +1,7 @@
 (function(){
   var AW='AW-18420968270';
   // Preencher com o rotulo da conversao criada no Google Ads (formato: AbCdEfGhIjK). Enquanto vazio, so registra o evento.
-  var CONV_LABEL='';
+  var CONV_LABEL='AjgHCMOmwrEdEM7W5s9E';
   var KEY='rc_consent';
   window.dataLayer=window.dataLayer||[];
   function gtag(){dataLayer.push(arguments);}
