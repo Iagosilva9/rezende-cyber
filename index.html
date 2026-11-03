@@ -354,7 +354,7 @@
 <footer>
   <div class="container rodape">
     <span>© <span id="ano">2026</span> Iago Silva Rezende · Perito Forense Digital e TI</span>
-    <span><a href="https://g.page/r/CewYBPclbX7JEBM/review" target="_blank" rel="noopener" style="color:var(--ciano)">Avaliar no Google</a> · Embu das Artes · SP · rezendecyber.com.br</span>
+    <span><a href="/privacidade/" style="color:var(--ciano)">Privacidade</a> · <a href="https://g.page/r/CewYBPclbX7JEBM/review" target="_blank" rel="noopener" style="color:var(--ciano)">Avaliar no Google</a> · Embu das Artes · SP · rezendecyber.com.br</span>
   </div>
 </footer>
 
@@ -378,5 +378,6 @@ document.getElementById('ano').textContent=new Date().getFullYear();
 const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('vis');io.unobserve(x.target)}}),{threshold:.12});
 document.querySelectorAll('.rev').forEach(el=>io.observe(el));
 </script>
+<script src="/js/track.js" defer></script>
 </body>
 </html>
