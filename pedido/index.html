@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Dados do seu site | Rezende Tecnologia</title>
+<link rel="icon" href="../img/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  main{width:min(680px,100% - 32px);margin:40px auto 72px}
+  main h1{font-size:clamp(1.8rem,5vw,2.6rem)}
+  form{display:grid;gap:18px;margin-top:30px}
+  label{display:grid;gap:6px;font-weight:600;font-size:.95rem}
+  label small{font-weight:400;color:var(--txt2)}
+  input,textarea{width:100%;padding:13px 15px;border-radius:12px;border:1px solid var(--linha);background:var(--card);color:var(--txt);font:inherit}
+  textarea{min-height:110px;resize:vertical}
+  input:focus,textarea:focus{outline:2px solid var(--ciano);outline-offset:1px}
+  form .btn{justify-content:center}
+  .btn[disabled]{opacity:.6;cursor:wait}
+  .erro{color:#fbbf24;font-weight:600}
+  .cartao-pedido{margin-top:30px;padding:28px;border:1px solid var(--linha);border-radius:var(--raio);background:var(--card)}
+  .cartao-pedido p{margin-bottom:18px;color:var(--txt2)}
+  .nota-dados{margin-top:28px;font-size:.85rem;color:var(--txt2)}
+  .nota-dados a{text-decoration:underline}
+  [hidden]{display:none!important}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="logo" href="../"><img src="../img/logo.jpg" alt=""><span><b>Rezende</b><small>Tecnologia</small></span></a>
+  </div>
+</header>
+
+<main>
+  <h1>Vamos montar o seu site</h1>
+
+  <div id="invalido" class="cartao-pedido" hidden>
+    <p>Este link está incompleto. Abra o link exatamente como chegou no seu e-mail ou fale conosco.</p>
+    <a class="btn btn-wpp" href="https://wa.me/5511959473491">Chamar no WhatsApp</a>
+  </div>
+
+  <div id="enviado" class="cartao-pedido" tabindex="-1" hidden>
+    <p><strong>Dados recebidos!</strong> Vamos analisar e, se faltar algo, chamamos você no WhatsApp.</p>
+    <a class="btn btn-wpp" href="https://wa.me/5511959473491">Chamar no WhatsApp</a>
+  </div>
+
+  <form id="dados" hidden>
+    <p class="sub">Preencha com calma. Os campos com * são obrigatórios.</p>
+    <label>Nome do negócio *<input name="negocio" required maxlength="2000" autocomplete="organization"></label>
+    <label>Ramo de atividade *<input name="ramo" required maxlength="2000" placeholder="Ex.: barbearia, oficina, confeitaria"></label>
+    <label>Sobre o negócio *<textarea name="descricao" required maxlength="2000" placeholder="Há quanto tempo existe e o que o diferencia"></textarea></label>
+    <label>Produtos e serviços *<textarea name="servicos" required maxlength="2000" placeholder="Um por linha, com preço se quiser mostrar"></textarea></label>
+    <label>WhatsApp que vai aparecer no site *<input name="whatsapp" type="tel" required maxlength="2000" placeholder="(11) 90000-0000"></label>
+    <label>Endereço ou região atendida<input name="endereco" maxlength="2000"></label>
+    <label>Horário de funcionamento<input name="horario" maxlength="2000" placeholder="Ex.: seg a sex, 9h às 18h"></label>
+    <label>Instagram<input name="instagram" maxlength="2000" placeholder="@seunegocio"></label>
+    <label>Domínio desejado<input name="dominio" maxlength="2000" placeholder="seunegocio.com.br"></label>
+    <label>Link das fotos e do logo <small>Pasta do Google Drive liberada para quem tem o link. Se preferir, envie depois pelo WhatsApp.</small><input name="fotos" type="url" maxlength="2000" placeholder="https://"></label>
+    <label>Observações<textarea name="observacoes" maxlength="2000" placeholder="Cores, sites que você gosta, o que não pode faltar"></textarea></label>
+    <p id="erro" class="erro" role="alert" hidden></p>
+    <button class="btn btn-wpp" type="submit">Enviar dados</button>
+  </form>
+
+  <p class="nota-dados">Usamos estes dados somente para criar e manter o seu site. <a href="../privacidade/">Política de privacidade</a>.</p>
+</main>
+
+<script>
+  // URL do app da Web do Apps Script. Só muda se você criar uma nova implantação.
+  const API_PUBLICADA = 'https://script.google.com/macros/s/AKfycbyAdiXbvBPi28sbQR9S2nvVAaTCUY7TUkd8EmjeIn-J8KW1v3IlVQffrz7VQgGU4dF7Fw/exec';
+  const API = ['localhost', '127.0.0.1'].includes(location.hostname) ? '/api' : API_PUBLICADA;
+
+  const form = document.getElementById('dados');
+  const erro = document.getElementById('erro');
+  const botao = form.querySelector('button');
+  const token = new URLSearchParams(location.hash.slice(1)).get('pedido');
+
+  document.getElementById(token ? 'dados' : 'invalido').hidden = false;
+  // Colar outro link na mesma aba muda só o trecho após "#".
+  addEventListener('hashchange', () => location.reload());
+
+  form.addEventListener('submit', async (evento) => {
+    evento.preventDefault();
+    erro.hidden = true;
+    botao.disabled = true;
+    botao.textContent = 'Enviando...';
+    try {
+      // Corpo em texto simples: o Apps Script não responde à pré-verificação de CORS.
+      const resposta = await fetch(API, {
+        method: 'POST',
+        body: JSON.stringify({ token, dados: Object.fromEntries(new FormData(form)) }),
+      });
+      const resultado = await resposta.json();
+      if (!resultado.ok) throw new Error(resultado.erro, { cause: 'recusado' });
+      form.hidden = true;
+      const painel = document.getElementById('enviado');
+      painel.hidden = false;
+      painel.focus();
+    } catch (falha) {
+      erro.textContent = falha.cause === 'recusado'
+        ? falha.message
+        : 'Não foi possível enviar. Confira a internet e tente de novo, ou fale conosco pelo WhatsApp.';
+      erro.hidden = false;
+    } finally {
+      botao.disabled = false;
+      botao.textContent = 'Enviar dados';
+    }
+  });
+</script>
+</body>
+</html>
