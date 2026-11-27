@@ -73,18 +73,3 @@
 .grupo{padding:40px 0 0;scroll-margin-top:90px}
 .grupo h2{font-size:1.3rem}.grupo h2::first-letter{text-transform:uppercase}
 .grupo .mats{margin-top:16px}
-
-/* amostras e compra */
-.nota{margin-top:16px;font-size:.9rem;color:var(--txt2)}
-.sumario .fechado{display:flex;gap:14px;color:var(--txt2);opacity:.65}
-.sumario em{font-style:normal;font-size:.75rem;color:var(--verde);white-space:nowrap;align-self:center}
-.amostra{margin-top:52px;padding:34px;border:1px solid rgba(34,211,238,.4);border-radius:var(--raio);background:linear-gradient(120deg,#0f2a40,var(--card))}
-.amostra h2{font-size:clamp(1.4rem,3vw,1.8rem)}
-.amostra p{color:var(--txt2);margin-top:12px}
-.amostra ul{margin:14px 0 0 20px;display:grid;gap:6px;color:var(--txt)}
-.amostra .preco{font-size:2.3rem;font-weight:700;color:var(--txt);margin-top:22px}
-.amostra .preco small{font-size:.95rem;font-weight:500;color:var(--txt2)}
-.amostra .btn{margin-top:14px}
-.amostra .letras{font-size:.85rem;margin-top:16px}
-.amostra .letras a{color:var(--ciano)}
-@media(max-width:600px){.amostra{padding:24px}.capa-acoes .btn,.amostra .btn{width:100%;justify-content:center}}
